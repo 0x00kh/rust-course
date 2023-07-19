@@ -10,7 +10,11 @@ pub struct Club {
 
 impl Club {
     pub fn new(id: u32, name: String) -> Self {
-        Club{id, name, student_ids: Default::default() }
+        Club {
+            id,
+            name,
+            student_ids: Default::default(),
+        }
     }
 }
 
@@ -29,7 +33,6 @@ pub struct DbClub {
     pub clubs: HashMap<u32, Club>,
 }
 
-
 impl DbClub {
     // 添加社团
     pub fn add_club(&mut self, club: Club) {
@@ -37,7 +40,7 @@ impl DbClub {
     }
 
     // 删除社团
-    fn del_club(&mut self, id:u32) {
+    fn del_club(&mut self, id: u32) {
         self.clubs.remove(&id);
     }
 
@@ -52,7 +55,11 @@ impl DbClub {
     }
 
     // 社团添加学生
-    pub fn add_student(&mut self, club_id: u32, student_id:u32) {
-        self.clubs.get_mut(&club_id).unwrap().student_ids.insert(student_id);
+    pub fn add_student(&mut self, club_id: u32, student_id: u32) {
+        self.clubs
+            .get_mut(&club_id)
+            .unwrap()
+            .student_ids
+            .insert(student_id);
     }
 }

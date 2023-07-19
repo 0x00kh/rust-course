@@ -11,7 +11,12 @@ pub struct Course {
 
 impl Course {
     pub fn new(id: u32, name: String, code: String, class_id: u32) -> Self {
-        Course{id, name, code, class_id}
+        Course {
+            id,
+            name,
+            code,
+            class_id,
+        }
     }
 }
 
@@ -20,7 +25,6 @@ pub struct DbCourse {
     pub courses: HashMap<u32, Course>,
 }
 
-
 impl DbCourse {
     // 添加课程
     pub fn add_course(&mut self, course: Course) {
@@ -28,7 +32,7 @@ impl DbCourse {
     }
 
     // 删除课程
-    fn del_course(&mut self, id:u32) {
+    fn del_course(&mut self, id: u32) {
         self.courses.remove(&id);
     }
 
@@ -41,5 +45,4 @@ impl DbCourse {
     pub fn get_course(&self, id: u32) -> Option<&Course> {
         self.courses.get(&id)
     }
-
 }

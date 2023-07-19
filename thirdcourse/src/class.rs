@@ -10,7 +10,11 @@ pub struct Class {
 
 impl Class {
     pub fn new(id: u32, name: String) -> Self {
-        Class{id, name, student_ids: Default::default() }
+        Class {
+            id,
+            name,
+            student_ids: Default::default(),
+        }
     }
 }
 
@@ -29,7 +33,6 @@ pub struct DbClass {
     pub classes: HashMap<u32, Class>,
 }
 
-
 impl DbClass {
     // 添加班级
     pub fn add_class(&mut self, class: Class) {
@@ -37,7 +40,7 @@ impl DbClass {
     }
 
     // 删除班级
-    fn del_class(&mut self, id:u32) {
+    fn del_class(&mut self, id: u32) {
         self.classes.remove(&id);
     }
 
@@ -52,7 +55,11 @@ impl DbClass {
     }
 
     // 班级添加学生
-    pub fn add_student(&mut self, class_id: u32, student_id:u32) {
-        self.classes.get_mut(&class_id).unwrap().student_ids.insert(student_id);
+    pub fn add_student(&mut self, class_id: u32, student_id: u32) {
+        self.classes
+            .get_mut(&class_id)
+            .unwrap()
+            .student_ids
+            .insert(student_id);
     }
 }
