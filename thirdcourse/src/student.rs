@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 //学生
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Student {
     pub id: u32,
     name: String,
@@ -13,14 +13,14 @@ impl Student {
     }
 }
 
-impl Clone for Student {
-    fn clone(&self) -> Self {
-        Self {
-            id: self.id,
-            name: self.name.clone(),
-        }
-    }
-}
+// impl Clone for Student {
+//     fn clone(&self) -> Self {
+//         Self {
+//             id: self.id,
+//             name: self.name.clone(),
+//         }
+//     }
+// }
 
 #[derive(Debug)]
 pub struct DbStudent {

@@ -1,7 +1,7 @@
 use std::collections::{HashMap, HashSet};
 
 // 班级
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Class {
     pub id: u32,
     name: String,
@@ -18,15 +18,15 @@ impl Class {
     }
 }
 
-impl Clone for Class {
-    fn clone(&self) -> Self {
-        Self {
-            id: self.id,
-            name: self.name.clone(),
-            student_ids: self.student_ids.clone(),
-        }
-    }
-}
+// impl Clone for Class {
+//     fn clone(&self) -> Self {
+//         Self {
+//             id: self.id,
+//             name: self.name.clone(),
+//             student_ids: self.student_ids.clone(),
+//         }
+//     }
+// }
 
 #[derive(Debug)]
 pub struct DbClass {
