@@ -1,14 +1,13 @@
-// 声明宏 `my_macro`，它将传入的表达式封装在一个闭包中，并返回闭包的结果
-macro_rules! my_macro {
+// 定义一个简单的声明宏，用于计算平方
+macro_rules! square {
     ($x:expr) => {
-        {
-            let y = $x;
-            || y * 2
-        }
+        $x * $x
     };
 }
 
 fn main() {
-    let closure = my_macro!(5);
-    println!("Result: {}", closure());
+    let num = 5;
+    let squared = square!(num);
+
+    println!("{} squared is: {}", num, squared);
 }
